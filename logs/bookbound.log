@@ -1,0 +1,64 @@
+2026-06-11 15:13:22,353 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-11 15:14:09,613 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-11 20:41:43,951 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-11 20:42:34,296 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 11:57:37,747 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:07:06,259 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:07:39,917 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:08:09,987 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:09:56,411 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:11:29,050 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:13:01,234 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:13:22,929 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:13:38,250 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:14:24,043 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:14:55,722 ERROR: Exception on /book/1 [GET] [in E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\app.py:1744]
+Traceback (most recent call last):
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\New Python Codes\Book Library\app\routes.py", line 98, in book_detail
+    return render_template('book.html', title=book.title, book=book, form=form, comments=comments.items, next_url=next_url, prev_url=prev_url)
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\templating.py", line 147, in render_template
+    return _render(app, template, context)
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\flask\templating.py", line 130, in _render
+    rv = template.render(context)
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\New Python Codes\Book Library\app\templates\book.html", line 3, in top-level template code
+    {% import 'macros.html' as pag %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\New Python Codes\Book Library\app\templates\base.html", line 63, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^
+  File "E:\New Python Codes\Book Library\app\templates\book.html", line 47, in block 'content'
+    {% include '_bookcomment.html' %}
+    ^^^^^^^^^
+  File "E:\New Python Codes\Book Library\app\templates\_bookcomment.html", line 16, in top-level template code
+    {% if post.language != g.locale %}
+    ^^^^^^^^^^^^^
+  File "E:\New Python Codes\Book Library\.venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'post' is undefined
+2026-06-13 12:15:48,962 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:15:58,267 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:50:15,928 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:51:00,799 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:51:32,104 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:54:07,345 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 12:54:17,727 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:93]
+2026-06-13 19:51:42,517 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
+2026-06-13 19:56:02,531 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
+2026-06-13 19:58:23,955 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
+2026-06-13 19:58:44,584 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
+2026-06-13 19:59:25,129 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
+2026-06-13 20:08:17,622 INFO: BookBound startup [in E:\New Python Codes\Book Library\app\__init__.py:105]
