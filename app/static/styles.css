@@ -1,0 +1,256 @@
+/* Custom styles for BookBound */
+
+/* Card styling - fixed heights for consistency */
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    padding: 5px;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.75rem;
+    flex: 1;
+}
+
+/* Title as link - no button needed */
+.card-title {
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    height: 2.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.card-title a:hover {
+    color: #0d6efd;
+}
+
+/* Consistent spacing for rating and price */
+.star-rating {
+    color: gold;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+    letter-spacing: 2px;
+}
+
+.card-text.price {
+    font-weight: bold;
+    color: #2c7a3e;
+    font-size: 1rem;
+    margin: 0.25rem 0;
+}
+
+/* Pagination spacing */
+.pagination {
+    gap: 8px;
+}
+
+.page-item {
+    margin: 0 2px;
+}
+
+.page-link {
+    border-radius: 6px;
+}
+
+/* Overall container padding */
+.container {
+    padding: 20px 15px;
+}
+
+/* Avatar selection grid */
+.avatar-option input {
+    display: none;
+}
+
+.avatar-option img {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+
+.avatar-option input:checked + img {
+    border-color: gold;
+}
+
+/* Avatar grid layout */
+.avatar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+/* Comment styling */
+.table-comment td {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.comment-avatar {
+    width: 46px;
+    vertical-align: top;
+}
+
+.comment-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 180px;
+    }
+    
+    .card-title {
+        font-size: 0.95rem;
+        height: 2.3rem;
+    }
+    
+    .container {
+        padding: 15px 10px;
+    }
+    
+    .pagination {
+        gap: 4px;
+    }
+    
+    .page-link {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Book detail page */
+.book-cover {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.book-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c7a3e;
+}
+
+.book-availability {
+    font-size: 1rem;
+}
+
+.book-description {
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+/* Comment styling */
+.comment {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-author {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.comment-author:hover {
+    text-decoration: underline;
+}
+
+.comment-body {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Error pages */
+.error-page {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.error-page .display-1 {
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+/* Smooth hover lift for user cards */
+.custom-card-hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Empty state styling */
+.border-dashed {
+    border-style: dashed !important;
+    border-width: 2px !important;
+}
+
+/* Ensure the hover effect lifts the book card */
+.custom-card-hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.custom-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fallback just in case your Bootstrap version needs it */
+.object-fit-cover {
+    object-fit: cover;
+}

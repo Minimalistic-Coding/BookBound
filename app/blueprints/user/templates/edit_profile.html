@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h1>{{ _("Edit Profile") }}</h1>
+	<form action="" method="post">
+		{{ form.hidden_tag() }}
+        
+        <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class='form-control' + (' is-invalid' if form.username.errors else '')) }}
+            {% for error in form.username.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.about_me.label(class='form-label') }}
+            {{ form.about_me(class='form-control' + (' is-invalid' if form.username.errors else ''), rows=4) }}<br>
+            {% for error in form.about_me.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <h3>{{ _("Choose Avatar:") }}</h3>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            {% for i in range(1, 11) %}
+            <label class="avatar-option">
+            	<input type="radio" name="avatar_id" value="{{ i }}" {% if i == current_user.avatar_id %}checked{% endif %}>
+            	<img src="{{ url_for('user.static', filename='avatars/' + i|string + '.svg') }}" width="80" height="80">
+            </label>
+            {% endfor %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.language.label(class='form-label') }}
+            {{ form.language(class='form-select') }}
+            {% for error in form.language.errors %}
+                <div class="invalid-feedback">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        {{ form.submit(class='btn btn-primary mt-3') }}
+	</form>
+
+{% endblock %}

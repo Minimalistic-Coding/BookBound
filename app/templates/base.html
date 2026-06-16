@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+        <link rel="preconnect" href="https://books.toscrape.com">
+        
+        <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo.svg') }}">
+
+        {% if title %}
+        <title>{{ title }} - BookBound</title>
+        {% else %}
+        <title>{{ _("Welcome - BookBound") }}</title>
+        {% endif %}
+    </head>
+    <body class="bg-light-subtle">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom shadow-sm py-2">
+            <div class="container flex-wrap flex-lg-nowrap">
+                
+                <a class="navbar-brand fw-bold text-primary fs-4 d-inline-flex align-items-center lh-1" href="{{ url_for('main.index') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" class="me-2 flex-shrink-0">
+                        <defs>
+                            <linearGradient id="bookBoundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0d6efd" />
+                                <stop offset="100%" stop-color="#0a58ca" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 21l-9-5.25V5.25L12 10.5l9-5.25v10.5L12 21z" fill="url(#bookBoundGradient)" opacity="0.08"/>
+                        <path d="M12 10.5c-2.5-3.5-7-3.5-9-1.5v10.5c2-2 6.5-2 9 1.5 2.5-3.5 7-3.5 9-1.5V9c-2-2-6.5-2-9 1.5z" fill="none" stroke="url(#bookBoundGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 5.5V21" stroke="url(#bookBoundGradient)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span style="transform: translateY(-1px);">BookBound :)</span>
+                </a>
+                
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                {% if g.search_form %}
+                <form class="d-flex d-lg-none order-3 w-100 mt-2 mx-0" method="get" action="{{ url_for('main.search') }}">
+                    <div class="input-group shadow-sm">
+                        {{ g.search_form.q(class='form-control border-end-0', placeholder=g.search_form.q.label.text) }}
+                        {{ g.search_form.search_type(class='form-select bg-light border-start-0 border-end-0', style='max-width: 100px; flex: 0 0 100px;') }}
+                        <button class="btn btn-primary px-3" type="submit" id="mobile-search-submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+                {% endif %}
+
+                <div class="collapse navbar-collapse order-2 order-lg-2 w-100 mt-2 mt-lg-0" id="navSupportedContent">
+                    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-semibold">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('main.index') }}">{{ _("Home") }}</a>
+                        </li>
+                    </ul>
+
+                    {% if g.search_form %}
+                    <form class="d-none d-lg-flex flex-grow-1 mx-4" method="get" action="{{ url_for('main.search') }}">
+                        <div class="input-group w-100 shadow-sm" style="max-width: 550px; margin: 0 auto;">
+                            {{ g.search_form.q(class='form-control border-end-0', placeholder=g.search_form.q.label.text) }}
+                            {{ g.search_form.search_type(class='form-select bg-light border-start-0 border-end-0', style='max-width: 110px; flex: 0 0 110px;') }}
+                            <button class="btn btn-primary px-3" type="submit" id="desktop-search-submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    {% endif %}
+
+                    <ul class="navbar-nav mb-2 mb-lg-0 fw-semibold text-nowrap">
+                        {% if current_user.is_anonymous %}    
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('auth.login') }}">{{ _("Sign In") }}</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('main.feed') }}">{{ _("Feed") }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ url_for('user.user_profile', username=current_user.username) }}">{{ _("Profile") }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" aria-current="page" href="{{ url_for('auth.logout') }}">{{ _("Sign Out") }}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        
+        <div class="container mt-3">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show border-0 shadow-sm" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+          {% block content %}{% endblock %}
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous">
+        </script>
+
+        <script>
+            async function deleteComment(url, commentId) {
+                const rowElement = document.getElementById('comment-' + commentId);
+
+                if (!confirm("Are you sure you want to delete this comment?")) {
+                    return;
+                }
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {'Content-Type': 'application/json; charset=utf-8'}
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    rowElement.style.transition = "all 0.5s ease-out";
+                    rowElement.style.opacity = '0';
+                    rowElement.style.transform = 'translateX(30px)';
+                    setTimeout(() => {
+                        rowElement.remove();
+                    }, 500);
+
+                } else {
+                    alert("Error: Could not delete comment.")
+                }
+            }
+        </script>
+        {{ moment.include_moment() }}
+        {{ moment.lang(g.locale) }}
+    </body>
+</html>
