@@ -15,12 +15,10 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS', '').split(',')
 
-    DOMAINS = os.environ.get('DOMAINS')
-
     ITEMS_PER_PAGE = 24
     MESSAGES_PER_CHAT = 20
 
-    DOMAINS = os.environ.get('DOMAINS').split(',')
+    DOMAINS = os.environ.get('DOMAINS', None).split(',')
 
     LANGUAGES = ['en', 'es', 'ru', 'ur', 'ar']
     ELASTICSEARCH_URL = os.environ.get("ELASTICSEARCH_URL")
