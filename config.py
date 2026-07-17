@@ -20,6 +20,8 @@ class Config:
     ITEMS_PER_PAGE = 24
     MESSAGES_PER_CHAT = 20
 
+    DOMAINS = os.environ.get('DOMAINS').split(',')
+
     LANGUAGES = ['en', 'es', 'ru', 'ur', 'ar']
     ELASTICSEARCH_URL = os.environ.get("ELASTICSEARCH_URL")
     REDIS_URL = os.environ.get('REDIS_URL', None) #or 'redis://'
