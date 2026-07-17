@@ -18,7 +18,7 @@ class Config:
     ITEMS_PER_PAGE = 24
     MESSAGES_PER_CHAT = 20
 
-    DOMAINS = ["http://127.0.0.1:5000", "http://192.168.0.106:5000", "https://nathanael-saner-daylily.ngrok-free.dev"]
+    DOMAINS = os.environ.get('DOMAINS').split(',')
 
     LANGUAGES = ['en', 'es', 'ru', 'ur', 'ar']
     ELASTICSEARCH_URL = os.environ.get("ELASTICSEARCH_URL")
