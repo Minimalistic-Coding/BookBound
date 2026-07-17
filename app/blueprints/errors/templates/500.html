@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="error-page">
+                <h1 class="display-1 text-muted">500</h1>
+                <h2 class="mb-4">{{ _("Server Error") }}</h2>
+                <p class="text-muted mb-4">{{ _("Something went wrong on our end. We've been notified and are looking into it.") }}</p>
+                <p class="text-muted mb-4">{{ _("Please try again later.") }}</p>
+                <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+                    <span aria-hidden="true">&larr;</span> {{ _("Back to Home") }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<div>
+  <img src="{{ book.cover }}" height="96" style="margin: 5px; float: left; border-radius: 4px;" alt="{{ _('Cover of') }} {{ book.title }}">
+  
+  <p style="margin-bottom: 5px;">
+    <strong><a href="{{ url_for('main.book_detail', book_id=book.id) }}">{{ book.title }}</a></strong>
+  </p>
+  
+  <p class="text-success fw-bold" style="margin-bottom: 2px;">{{ book.price }}$</p>
+  <p class="star-rating" style="margin-bottom: 2px; color: #ffc107;">
+    {{ "★" * book.rating }}{{ "☆" * (5 - book.rating) }}
+  </p>
+  
+  <p><span class="badge bg-secondary">{{ _('In stock') }}: {{ book.availability }}</span></p>
+  
+  <div class="clearfix"></div>
+  <hr style="margin: 10px 0;">
+  <p class="text-muted" style="font-size: 0.9em; margin-bottom: 0;">
+    {{ book.description[:120] }}{% if book.description|length > 120 %}...{% endif %}
+  </p>
+</div>

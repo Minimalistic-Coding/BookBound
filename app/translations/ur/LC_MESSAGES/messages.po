@@ -1,0 +1,535 @@
+# Urdu translations for BookBound.
+# Copyright (C) 2026
+# This file is distributed under the same license as the BookBound project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BookBound VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-14 21:22+0500\n"
+"PO-Revision-Date: 2026-06-13 21:30+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ur\n"
+"Language-Team: ur <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/__init__.py:30
+msgid "Please log in to access this page."
+msgstr "براہ کرم اس صفحے تک رسائی کے لیے لاگ ان کریں۔"
+
+#: app/blueprints/auth/email.py:8
+msgid "[BookBound] - Reset Password"
+msgstr "[BookBound] - پاس ورڈ دوبارہ ترتیب دیں"
+
+#: app/blueprints/auth/forms.py:13 app/blueprints/auth/forms.py:22
+#: app/blueprints/user/forms.py:13
+msgid "Username"
+msgstr "صارف نام"
+
+#: app/blueprints/auth/forms.py:14 app/blueprints/auth/forms.py:24
+#: app/blueprints/auth/forms.py:51
+msgid "Password"
+msgstr "پاس ورڈ"
+
+#: app/blueprints/auth/forms.py:15
+msgid "Remember Me"
+msgstr "مجھے یاد رکھیں"
+
+#: app/blueprints/auth/forms.py:16
+msgid "Sign in"
+msgstr "لاگ ان کریں"
+
+#: app/blueprints/auth/forms.py:23 app/blueprints/auth/forms.py:45
+msgid "Email"
+msgstr "ای میل"
+
+#: app/blueprints/auth/forms.py:25 app/blueprints/auth/forms.py:53
+msgid "Repeat Password"
+msgstr "پاس ورڈ دہرائیں"
+
+#: app/blueprints/auth/forms.py:26 app/blueprints/auth/routes.py:64
+#: app/blueprints/auth/templates/register.html:5
+msgid "Register"
+msgstr "رجسٹر کریں"
+
+#: app/blueprints/auth/forms.py:33 app/blueprints/user/forms.py:34
+msgid "Please use different Username!"
+msgstr "براہ کرم مختلف صارف نام استعمال کریں!"
+
+#: app/blueprints/auth/forms.py:40
+msgid "Please use different Email!"
+msgstr "براہ کرم مختلف ای میل استعمال کریں!"
+
+#: app/blueprints/auth/forms.py:46
+msgid "Request Password Reset"
+msgstr "پاس ورڈ دوبارہ ترتیب دینے کی درخواست کریں"
+
+#: app/blueprints/auth/forms.py:54
+msgid "Password Reset"
+msgstr "پاس ورڈ دوبارہ ترتیب دیں"
+
+#: app/blueprints/auth/routes.py:26
+msgid "Invalid Username or Password!"
+msgstr "غلط صارف نام یا پاس ورڈ!"
+
+#: app/blueprints/auth/routes.py:37 app/blueprints/auth/templates/login.html:6
+#: app/templates/base.html:81
+msgid "Sign In"
+msgstr "لاگ ان کریں"
+
+#: app/blueprints/auth/routes.py:61
+msgid "Congratulations, you are now a registered user!"
+msgstr "مبارک ہو، آپ اب ایک رجسٹرڈ صارف ہیں!"
+
+#: app/blueprints/auth/routes.py:79
+msgid "Check your email for the instructions to reset your password!"
+msgstr "پاس ورڈ دوبارہ ترتیب دینے کی ہدایات کے لیے اپنا ای میل چیک کریں!"
+
+#: app/blueprints/auth/routes.py:82 app/blueprints/auth/routes.py:102
+#: app/blueprints/auth/templates/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "پاس ورڈ دوبارہ ترتیب دیں"
+
+#: app/blueprints/auth/routes.py:100
+msgid "Your password has been reset."
+msgstr "آپ کا پاس ورڈ دوبارہ ترتیب دے دیا گیا ہے۔"
+
+#: app/blueprints/auth/templates/login.html:10
+msgid "New User?"
+msgstr "نیا صارف؟"
+
+#: app/blueprints/auth/templates/login.html:11
+msgid "Click to Register!"
+msgstr "رجسٹر کرنے کے لیے کلک کریں!"
+
+#: app/blueprints/auth/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "اپنا پاس ورڈ بھول گئے؟"
+
+#: app/blueprints/auth/templates/login.html:15
+msgid "Click to Reset It"
+msgstr "اسے دوبارہ ترتیب دینے کے لیے کلک کریں"
+
+#: app/blueprints/auth/templates/reset_password.html:5
+msgid "Reset Your Password"
+msgstr "اپنا پاس ورڈ دوبارہ ترتیب دیں"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:4
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "محترم %(username)s،"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:6
+msgid "To reset your password"
+msgstr "اپنا پاس ورڈ دوبارہ ترتیب دینے کے لیے"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:8
+msgid "click here"
+msgstr "یہاں کلک کریں"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:11
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar:"
+msgstr ""
+"متبادل طور پر، آپ درج ذیل لنک کو اپنے براؤزر کے ایڈریس بار میں چسپاں کر "
+"سکتے ہیں:"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:13
+msgid "If you have not requested a password reset simply ignore this message."
+msgstr ""
+"اگر آپ نے پاس ورڈ دوبارہ ترتیب دینے کی درخواست نہیں کی ہے تو اس پیغام کو "
+"نظر انداز کریں۔"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:14
+msgid "Sincerely,"
+msgstr "مخلص،"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:15
+msgid "The BookBound Team"
+msgstr "BookBound ٹیم"
+
+#: app/blueprints/errors/templates/404.html:10
+msgid "Page Not Found"
+msgstr "صفحہ نہیں ملا"
+
+#: app/blueprints/errors/templates/404.html:11
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "آپ جس صفحہ کی تلاش کر رہے ہیں وہ موجود نہیں یا منتقل کر دیا گیا ہے۔"
+
+#: app/blueprints/errors/templates/404.html:13
+#: app/blueprints/errors/templates/500.html:14
+msgid "Back to Home"
+msgstr "ہوم پر واپس جائیں"
+
+#: app/blueprints/errors/templates/500.html:10
+msgid "Server Error"
+msgstr "سرور خرابی"
+
+#: app/blueprints/errors/templates/500.html:11
+msgid ""
+"Something went wrong on our end. We've been notified and are looking into"
+" it."
+msgstr ""
+"ہماری طرف سے کچھ غلط ہو گیا ہے۔ ہمیں اطلاع دے دی گئی ہے اور ہم اس کی جانچ"
+" کر رہے ہیں۔"
+
+#: app/blueprints/errors/templates/500.html:12
+msgid "Please try again later."
+msgstr "براہ کرم بعد میں دوبارہ کوشش کریں۔"
+
+#: app/blueprints/main/forms.py:8
+msgid "Add Your Comment:"
+msgstr "اپنا تبصرہ شامل کریں:"
+
+#: app/blueprints/main/forms.py:10 app/blueprints/user/forms.py:22
+msgid "Submit"
+msgstr "جمع کروائیں"
+
+#: app/blueprints/main/forms.py:13 app/blueprints/main/routes.py:51
+msgid "Search"
+msgstr "تلاش کریں"
+
+#: app/blueprints/main/forms.py:14
+msgid "Filter"
+msgstr "فلٹر کریں"
+
+#: app/blueprints/main/forms.py:15
+msgid "Books"
+msgstr "کتابیں"
+
+#: app/blueprints/main/forms.py:16
+msgid "Users"
+msgstr "صارفین"
+
+#: app/blueprints/main/routes.py:30 app/templates/base.html:62
+msgid "Home"
+msgstr "ہوم"
+
+#: app/blueprints/main/routes.py:69
+msgid "Book Not Available!"
+msgstr "کتاب دستیاب نہیں ہے!"
+
+#: app/blueprints/main/routes.py:98
+msgid "Comment Successfully Uploaded!"
+msgstr "تبصرہ کامیابی سے اپ لوڈ ہو گیا!"
+
+#: app/blueprints/main/routes.py:123 app/blueprints/main/templates/feed.html:6
+#: app/templates/base.html:85
+msgid "Feed"
+msgstr "فیڈ"
+
+#: app/blueprints/main/templates/book.html:22
+msgid "Description"
+msgstr "تفصیل"
+
+#: app/blueprints/main/templates/book.html:30
+msgid "Comments"
+msgstr "تبصرے"
+
+#: app/blueprints/main/templates/book.html:37
+msgid "Log in"
+msgstr "لاگ ان کریں"
+
+#: app/blueprints/main/templates/book.html:43
+msgid "No comments yet. Be the first!"
+msgstr "ابھی کوئی تبصرہ نہیں۔ پہلے بنیں!"
+
+#: app/blueprints/main/templates/book_popup.html:2
+msgid "Cover of"
+msgstr "کا سرورق"
+
+#: app/blueprints/main/templates/book_popup.html:13
+msgid "In stock"
+msgstr "دستیاب"
+
+#: app/blueprints/main/templates/feed.html:13
+msgid "No comments from users you follow. Follow someone to see their comments!"
+msgstr ""
+"آپ جن صارفین کو فالو کرتے ہیں ان کے کوئی تبصرے نہیں۔ ان کے تبصرے دیکھنے "
+"کے لیے کسی کو فالو کریں!"
+
+#: app/blueprints/main/templates/index.html:9
+msgid "Library Collection"
+msgstr "کتب خانہ کا ذخیرہ"
+
+#: app/blueprints/main/templates/index.html:10
+msgid "Browse the latest additions to the catalog."
+msgstr "کیٹلاگ میں تازہ ترین اضافے دیکھیں۔"
+
+#: app/blueprints/main/templates/index.html:23
+msgid "No books available"
+msgstr "کوئی کتاب دستیاب نہیں۔"
+
+#: app/blueprints/main/templates/index.html:24
+msgid ""
+"Fire up your background scraping service to populate the database with "
+"new titles!"
+msgstr ""
+"اپنی بیک گراؤنڈ سکریپنگ سروس کو چلائیں تاکہ ڈیٹابیس کو نئی عنوانات سے "
+"بھرا جا سکے!"
+
+#: app/blueprints/main/templates/search_book.html:9
+msgid "Library Search"
+msgstr "کتب خانہ تلاش"
+
+#: app/blueprints/main/templates/search_book.html:11
+msgid "Results for"
+msgstr "نتائج برائے"
+
+#: app/blueprints/main/templates/search_book.html:16
+#, python-format
+msgid "Found %(count)d books"
+msgstr "%(count)d کتابیں ملیں۔"
+
+#: app/blueprints/main/templates/search_book.html:31
+msgid "No books found"
+msgstr "کوئی کتاب نہیں ملی۔"
+
+#: app/blueprints/main/templates/search_book.html:32
+msgid ""
+"We couldn't find any titles matching your search. Try checking the "
+"spelling or using broader keywords."
+msgstr ""
+"ہم آپ کی تلاش سے ملنے والی کوئی عنوانات نہیں ڈھونڈ سکے۔ براہ کرم ہجے چیک "
+"کریں یا وسیع کلیدی الفاظ استعمال کریں۔"
+
+#: app/blueprints/main/templates/search_user.html:9
+msgid "Search Results"
+msgstr "تلاش کے نتائج"
+
+#: app/blueprints/main/templates/search_user.html:11
+msgid "Showing matches for"
+msgstr "کے مماثل نتائج"
+
+#: app/blueprints/main/templates/search_user.html:16
+#, python-format
+msgid "Found %(count)d profiles"
+msgstr "%(count)d پروفائلز ملیں۔"
+
+#: app/blueprints/main/templates/search_user.html:27
+msgid "No users found"
+msgstr "کوئی صارف نہیں ملا۔"
+
+#: app/blueprints/main/templates/search_user.html:28
+msgid ""
+"We couldn't find anyone matching your search query. Try adjusting your "
+"spelling or using different keywords."
+msgstr ""
+"ہم آپ کے تلاش کے سوال سے ملنے والا کوئی صارف نہیں ڈھونڈ سکے۔ براہ کرم "
+"اپنا ہجے درست کریں یا مختلف کلیدی الفاظ استعمال کریں۔"
+
+#: app/blueprints/messenger/routes.py:59
+msgid "You cannot message yourself!"
+msgstr "آپ خود کو پیغام نہیں بھیج سکتے!"
+
+#: app/blueprints/messenger/routes.py:80
+#, python-format
+msgid "Chat with %(username)s"
+msgstr "%(username)s کے ساتھ چیٹ کریں"
+
+#: app/blueprints/messenger/templates/chat.html:10
+msgid "Back to inbox"
+msgstr "ان باکس پر واپس جائیں"
+
+#: app/blueprints/messenger/templates/chat.html:59
+#, python-format
+msgid "This is the start of your message history with %(username)s."
+msgstr "یہ %(username)s کے ساتھ آپ کے پیغامات کی تاریخ کا آغاز ہے۔"
+
+#: app/blueprints/messenger/templates/chat.html:70
+msgid "Type a message..."
+msgstr "پیغام لکھیں..."
+
+#: app/blueprints/messenger/templates/chat.html:72
+msgid "Send"
+msgstr "بھیجیں"
+
+#: app/blueprints/messenger/templates/inbox.html:12
+msgid "Chats"
+msgstr "چیٹس"
+
+#: app/blueprints/messenger/templates/inbox.html:15
+#, python-format
+msgid "%(count)s conversations"
+msgstr "%(count)s گفتگو"
+
+#: app/blueprints/messenger/templates/inbox.html:30
+#, python-format
+msgid "%(username)s's avatar"
+msgstr "%(username)s کا اوتار"
+
+#: app/blueprints/messenger/templates/inbox.html:43
+#, python-format
+msgid "View %(username)s's profile"
+msgstr "%(username)s کا پروفائل دیکھیں"
+
+#: app/blueprints/messenger/templates/inbox.html:56
+msgid "You:"
+msgstr "آپ:"
+
+#: app/blueprints/messenger/templates/inbox.html:69
+msgid "No conversations yet"
+msgstr "ابھی کوئی گفتگو نہیں"
+
+#: app/blueprints/messenger/templates/inbox.html:71
+msgid "Visit a member's profile and send them a message to start chatting."
+msgstr "چیٹنگ شروع کرنے کے لیے کسی ممبر کے پروفائل پر جائیں اور انہیں پیغام بھیجیں۔"
+
+#: app/blueprints/user/forms.py:14
+msgid "About Me"
+msgstr "میرے بارے میں"
+
+#: app/blueprints/user/forms.py:15
+msgid "Language"
+msgstr "زبان"
+
+#: app/blueprints/user/routes.py:30 app/templates/base.html:99
+msgid "Profile"
+msgstr "پروفائل"
+
+#: app/blueprints/user/routes.py:60
+msgid "Your changes have been saved!"
+msgstr "آپ کی تبدیلیاں محفوظ کر لی گئی ہیں!"
+
+#: app/blueprints/user/routes.py:67
+#: app/blueprints/user/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "پروفائل میں ترمیم کریں"
+
+#: app/blueprints/user/routes.py:80 app/blueprints/user/routes.py:105
+#, python-format
+msgid "User: %(username)s not found!"
+msgstr "صارف: %(username)s نہیں ملا!"
+
+#: app/blueprints/user/routes.py:84
+msgid "You can't follow userself!"
+msgstr "آپ خود کو فالو نہیں کر سکتے!"
+
+#: app/blueprints/user/routes.py:89
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "آپ %(username)s کو فالو کر رہے ہیں!"
+
+#: app/blueprints/user/routes.py:109
+msgid "You can't unfollow userself!"
+msgstr "آپ خود کو انفالو نہیں کر سکتے!"
+
+#: app/blueprints/user/routes.py:114
+#, python-format
+msgid "You unfollowed %(username)s!"
+msgstr "آپ نے %(username)s کو انفالو کر دیا!"
+
+#: app/blueprints/user/templates/edit_profile.html:25
+msgid "Choose Avatar:"
+msgstr "اوتار منتخب کریں:"
+
+#: app/blueprints/user/templates/profile.html:10
+msgid "User"
+msgstr "صارف"
+
+#: app/blueprints/user/templates/profile.html:12
+#: app/blueprints/user/templates/user_popup.html:7
+msgid "Last seen on"
+msgstr "آخری بار دیکھا گیا"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:35
+msgid "Followers"
+msgstr "فالو کرنے والے"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:44
+msgid "Following"
+msgstr "فالو شدہ"
+
+#: app/blueprints/user/templates/profile.html:15
+msgid "Edit your profile"
+msgstr "اپنے پروفائل میں ترمیم کریں"
+
+#: app/blueprints/user/templates/profile.html:20
+#: app/blueprints/user/templates/user_popup.html:15
+msgid "Follow"
+msgstr "فالو کریں"
+
+#: app/blueprints/user/templates/profile.html:27
+#: app/blueprints/user/templates/user_popup.html:22
+msgid "Unfollow"
+msgstr "انفالو کریں"
+
+#: app/blueprints/user/templates/profile.html:34
+msgid "Chat With User"
+msgstr "صارف سے چیٹ کریں"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d فالوورز"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d فالو شدہ"
+
+#: app/templates/_bookcomment.html:16
+#, python-format
+msgid "%(username)s says:"
+msgstr "%(username)s کہتے ہیں:"
+
+#: app/templates/_bookcomment.html:29 app/templates/_comment.html:35
+msgid "Delete"
+msgstr "حذف کریں"
+
+#: app/templates/_comment.html:22
+#, python-format
+msgid "%(username)s commented on %(book_name)s"
+msgstr "%(username)s نے %(book_name)s پر تبصرہ کیا"
+
+#: app/templates/_user_card.html:21
+msgid "Active"
+msgstr "فعال"
+
+#: app/templates/_user_card.html:21
+msgid "Never"
+msgstr "کبھی نہیں"
+
+#: app/templates/_user_card.html:28
+msgid "No bio written yet."
+msgstr "ابھی تک کوئی تعارف نہیں لکھا گیا۔"
+
+#: app/templates/base.html:20
+msgid "Welcome - BookBound"
+msgstr "خوش آمدید - BookBound"
+
+#: app/templates/base.html:89
+msgid "Messages"
+msgstr "پیغامات"
+
+#: app/templates/base.html:102
+msgid "Sign Out"
+msgstr "لاگ آؤٹ کریں"
+
+#: app/templates/macros.html:7
+msgid "Newer"
+msgstr "نئے"
+
+#: app/templates/macros.html:7
+msgid "Previous"
+msgstr "پچھلے"
+
+#: app/templates/macros.html:7 app/templates/macros.html:12
+#, python-format
+msgid "%(label)s"
+msgstr "%(label)s"
+
+#: app/templates/macros.html:12
+msgid "Older"
+msgstr "پرانے"
+
+#: app/templates/macros.html:12
+msgid "Next"
+msgstr "اگلے"

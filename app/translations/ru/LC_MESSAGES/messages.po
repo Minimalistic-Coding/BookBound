@@ -1,0 +1,532 @@
+# Russian translations for BookBound.
+# Copyright (C) 2026
+# This file is distributed under the same license as the BookBound project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BookBound VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-14 21:22+0500\n"
+"PO-Revision-Date: 2026-06-13 21:00+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/__init__.py:30
+msgid "Please log in to access this page."
+msgstr "Пожалуйста, войдите, чтобы получить доступ к этой странице."
+
+#: app/blueprints/auth/email.py:8
+msgid "[BookBound] - Reset Password"
+msgstr "[BookBound] - Сброс пароля"
+
+#: app/blueprints/auth/forms.py:13 app/blueprints/auth/forms.py:22
+#: app/blueprints/user/forms.py:13
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: app/blueprints/auth/forms.py:14 app/blueprints/auth/forms.py:24
+#: app/blueprints/auth/forms.py:51
+msgid "Password"
+msgstr "Пароль"
+
+#: app/blueprints/auth/forms.py:15
+msgid "Remember Me"
+msgstr "Запомнить меня"
+
+#: app/blueprints/auth/forms.py:16
+msgid "Sign in"
+msgstr "Войти"
+
+#: app/blueprints/auth/forms.py:23 app/blueprints/auth/forms.py:45
+msgid "Email"
+msgstr "Электронная почта"
+
+#: app/blueprints/auth/forms.py:25 app/blueprints/auth/forms.py:53
+msgid "Repeat Password"
+msgstr "Повторите пароль"
+
+#: app/blueprints/auth/forms.py:26 app/blueprints/auth/routes.py:64
+#: app/blueprints/auth/templates/register.html:5
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: app/blueprints/auth/forms.py:33 app/blueprints/user/forms.py:34
+msgid "Please use different Username!"
+msgstr "Пожалуйста, используйте другое имя пользователя!"
+
+#: app/blueprints/auth/forms.py:40
+msgid "Please use different Email!"
+msgstr "Пожалуйста, используйте другой адрес электронной почты!"
+
+#: app/blueprints/auth/forms.py:46
+msgid "Request Password Reset"
+msgstr "Запросить сброс пароля"
+
+#: app/blueprints/auth/forms.py:54
+msgid "Password Reset"
+msgstr "Сброс пароля"
+
+#: app/blueprints/auth/routes.py:26
+msgid "Invalid Username or Password!"
+msgstr "Неверное имя пользователя или пароль!"
+
+#: app/blueprints/auth/routes.py:37 app/blueprints/auth/templates/login.html:6
+#: app/templates/base.html:81
+msgid "Sign In"
+msgstr "Войти"
+
+#: app/blueprints/auth/routes.py:61
+msgid "Congratulations, you are now a registered user!"
+msgstr "Поздравляем, вы зарегистрированы!"
+
+#: app/blueprints/auth/routes.py:79
+msgid "Check your email for the instructions to reset your password!"
+msgstr ""
+"Проверьте свою электронную почту для получения инструкций по сбросу "
+"пароля."
+
+#: app/blueprints/auth/routes.py:82 app/blueprints/auth/routes.py:102
+#: app/blueprints/auth/templates/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "Сбросить пароль"
+
+#: app/blueprints/auth/routes.py:100
+msgid "Your password has been reset."
+msgstr "Ваш пароль был сброшен."
+
+#: app/blueprints/auth/templates/login.html:10
+msgid "New User?"
+msgstr "Новый пользователь?"
+
+#: app/blueprints/auth/templates/login.html:11
+msgid "Click to Register!"
+msgstr "Нажмите, чтобы зарегистрироваться!"
+
+#: app/blueprints/auth/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "Забыли пароль?"
+
+#: app/blueprints/auth/templates/login.html:15
+msgid "Click to Reset It"
+msgstr "Нажмите, чтобы сбросить его"
+
+#: app/blueprints/auth/templates/reset_password.html:5
+msgid "Reset Your Password"
+msgstr "Сбросить ваш пароль"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:4
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "Уважаемый(ая) %(username)s,"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:6
+msgid "To reset your password"
+msgstr "Чтобы сбросить пароль"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:8
+msgid "click here"
+msgstr "нажмите здесь"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:11
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar:"
+msgstr "Или вы можете скопировать следующую ссылку в адресную строку браузера:"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:13
+msgid "If you have not requested a password reset simply ignore this message."
+msgstr "Если вы не запрашивали сброс пароля, просто проигнорируйте это сообщение."
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:14
+msgid "Sincerely,"
+msgstr "С уважением,"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:15
+msgid "The BookBound Team"
+msgstr "Команда BookBound"
+
+#: app/blueprints/errors/templates/404.html:10
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: app/blueprints/errors/templates/404.html:11
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "Страница, которую вы ищете, не существует или была перемещена."
+
+#: app/blueprints/errors/templates/404.html:13
+#: app/blueprints/errors/templates/500.html:14
+msgid "Back to Home"
+msgstr "Вернуться на главную"
+
+#: app/blueprints/errors/templates/500.html:10
+msgid "Server Error"
+msgstr "Ошибка сервера"
+
+#: app/blueprints/errors/templates/500.html:11
+msgid ""
+"Something went wrong on our end. We've been notified and are looking into"
+" it."
+msgstr "Что-то пошло не так. Мы уже уведомлены и разбираемся в проблеме."
+
+#: app/blueprints/errors/templates/500.html:12
+msgid "Please try again later."
+msgstr "Пожалуйста, попробуйте позже."
+
+#: app/blueprints/main/forms.py:8
+msgid "Add Your Comment:"
+msgstr "Добавить комментарий:"
+
+#: app/blueprints/main/forms.py:10 app/blueprints/user/forms.py:22
+msgid "Submit"
+msgstr "Отправить"
+
+#: app/blueprints/main/forms.py:13 app/blueprints/main/routes.py:51
+msgid "Search"
+msgstr "Поиск"
+
+#: app/blueprints/main/forms.py:14
+msgid "Filter"
+msgstr "Фильтр"
+
+#: app/blueprints/main/forms.py:15
+msgid "Books"
+msgstr "Книги"
+
+#: app/blueprints/main/forms.py:16
+msgid "Users"
+msgstr "Пользователи"
+
+#: app/blueprints/main/routes.py:30 app/templates/base.html:62
+msgid "Home"
+msgstr "Главная"
+
+#: app/blueprints/main/routes.py:69
+msgid "Book Not Available!"
+msgstr "Книга недоступна!"
+
+#: app/blueprints/main/routes.py:98
+msgid "Comment Successfully Uploaded!"
+msgstr "Комментарий успешно добавлен!"
+
+#: app/blueprints/main/routes.py:123 app/blueprints/main/templates/feed.html:6
+#: app/templates/base.html:85
+msgid "Feed"
+msgstr "Лента"
+
+#: app/blueprints/main/templates/book.html:22
+msgid "Description"
+msgstr "Описание"
+
+#: app/blueprints/main/templates/book.html:30
+msgid "Comments"
+msgstr "Комментарии"
+
+#: app/blueprints/main/templates/book.html:37
+msgid "Log in"
+msgstr "Войти"
+
+#: app/blueprints/main/templates/book.html:43
+msgid "No comments yet. Be the first!"
+msgstr "Пока нет комментариев. Будьте первым!"
+
+#: app/blueprints/main/templates/book_popup.html:2
+msgid "Cover of"
+msgstr "Обложка"
+
+#: app/blueprints/main/templates/book_popup.html:13
+msgid "In stock"
+msgstr "В наличии"
+
+#: app/blueprints/main/templates/feed.html:13
+msgid "No comments from users you follow. Follow someone to see their comments!"
+msgstr ""
+"Нет комментариев от пользователей, на которых вы подписаны. Подпишитесь "
+"на кого-нибудь, чтобы видеть их комментарии!"
+
+#: app/blueprints/main/templates/index.html:9
+msgid "Library Collection"
+msgstr "Библиотечная коллекция"
+
+#: app/blueprints/main/templates/index.html:10
+msgid "Browse the latest additions to the catalog."
+msgstr "Просматривайте последние добавления в каталог."
+
+#: app/blueprints/main/templates/index.html:23
+msgid "No books available"
+msgstr "Нет доступных книг."
+
+#: app/blueprints/main/templates/index.html:24
+msgid ""
+"Fire up your background scraping service to populate the database with "
+"new titles!"
+msgstr ""
+"Запустите фоновый сервис сбора данных, чтобы наполнить базу данных новыми"
+" книгами!"
+
+#: app/blueprints/main/templates/search_book.html:9
+msgid "Library Search"
+msgstr "Поиск по библиотеке"
+
+#: app/blueprints/main/templates/search_book.html:11
+msgid "Results for"
+msgstr "Результаты для"
+
+#: app/blueprints/main/templates/search_book.html:16
+#, python-format
+msgid "Found %(count)d books"
+msgstr "Найдено %(count)d книг"
+
+#: app/blueprints/main/templates/search_book.html:31
+msgid "No books found"
+msgstr "Книги не найдены."
+
+#: app/blueprints/main/templates/search_book.html:32
+msgid ""
+"We couldn't find any titles matching your search. Try checking the "
+"spelling or using broader keywords."
+msgstr ""
+"Мы не нашли ни одной книги, соответствующей вашему запросу. Проверьте "
+"орфографию или используйте более общие ключевые слова."
+
+#: app/blueprints/main/templates/search_user.html:9
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+#: app/blueprints/main/templates/search_user.html:11
+msgid "Showing matches for"
+msgstr "Показаны совпадения для"
+
+#: app/blueprints/main/templates/search_user.html:16
+#, python-format
+msgid "Found %(count)d profiles"
+msgstr "Найдено %(count)d профилей"
+
+#: app/blueprints/main/templates/search_user.html:27
+msgid "No users found"
+msgstr "Пользователи не найдены."
+
+#: app/blueprints/main/templates/search_user.html:28
+msgid ""
+"We couldn't find anyone matching your search query. Try adjusting your "
+"spelling or using different keywords."
+msgstr ""
+"Мы не нашли ни одного пользователя по вашему запросу. Попробуйте изменить"
+" написание или использовать другие ключевые слова."
+
+#: app/blueprints/messenger/routes.py:59
+msgid "You cannot message yourself!"
+msgstr "Вы не можете отправить сообщение самому себе!"
+
+#: app/blueprints/messenger/routes.py:80
+#, python-format
+msgid "Chat with %(username)s"
+msgstr "Чат с %(username)s"
+
+#: app/blueprints/messenger/templates/chat.html:10
+msgid "Back to inbox"
+msgstr "Вернуться в папку входящих"
+
+#: app/blueprints/messenger/templates/chat.html:59
+#, python-format
+msgid "This is the start of your message history with %(username)s."
+msgstr "Это начало вашей истории сообщений с %(username)s."
+
+#: app/blueprints/messenger/templates/chat.html:70
+msgid "Type a message..."
+msgstr "Введите сообщение..."
+
+#: app/blueprints/messenger/templates/chat.html:72
+msgid "Send"
+msgstr "Отправить"
+
+#: app/blueprints/messenger/templates/inbox.html:12
+msgid "Chats"
+msgstr "Чаты"
+
+#: app/blueprints/messenger/templates/inbox.html:15
+#, python-format
+msgid "%(count)s conversations"
+msgstr "%(count)s переписок"
+
+#: app/blueprints/messenger/templates/inbox.html:30
+#, python-format
+msgid "%(username)s's avatar"
+msgstr "Аватар %(username)s"
+
+#: app/blueprints/messenger/templates/inbox.html:43
+#, python-format
+msgid "View %(username)s's profile"
+msgstr "Просмотр профиля %(username)s"
+
+#: app/blueprints/messenger/templates/inbox.html:56
+msgid "You:"
+msgstr "Вы:"
+
+#: app/blueprints/messenger/templates/inbox.html:69
+msgid "No conversations yet"
+msgstr "Пока нет переписок"
+
+#: app/blueprints/messenger/templates/inbox.html:71
+msgid "Visit a member's profile and send them a message to start chatting."
+msgstr "Посетите профиль участника и отправьте ему сообщение, чтобы начать общение."
+
+#: app/blueprints/user/forms.py:14
+msgid "About Me"
+msgstr "О себе"
+
+#: app/blueprints/user/forms.py:15
+msgid "Language"
+msgstr "Язык"
+
+#: app/blueprints/user/routes.py:30 app/templates/base.html:99
+msgid "Profile"
+msgstr "Профиль"
+
+#: app/blueprints/user/routes.py:60
+msgid "Your changes have been saved!"
+msgstr "Ваши изменения сохранены!"
+
+#: app/blueprints/user/routes.py:67
+#: app/blueprints/user/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+#: app/blueprints/user/routes.py:80 app/blueprints/user/routes.py:105
+#, python-format
+msgid "User: %(username)s not found!"
+msgstr "Пользователь %(username)s не найден!"
+
+#: app/blueprints/user/routes.py:84
+msgid "You can't follow userself!"
+msgstr "Нельзя подписаться на самого себя!"
+
+#: app/blueprints/user/routes.py:89
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "Вы подписаны на %(username)s!"
+
+#: app/blueprints/user/routes.py:109
+msgid "You can't unfollow userself!"
+msgstr "Нельзя отписаться от самого себя!"
+
+#: app/blueprints/user/routes.py:114
+#, python-format
+msgid "You unfollowed %(username)s!"
+msgstr "Вы отписались от %(username)s!"
+
+#: app/blueprints/user/templates/edit_profile.html:25
+msgid "Choose Avatar:"
+msgstr "Выберите аватар:"
+
+#: app/blueprints/user/templates/profile.html:10
+msgid "User"
+msgstr "Пользователь"
+
+#: app/blueprints/user/templates/profile.html:12
+#: app/blueprints/user/templates/user_popup.html:7
+msgid "Last seen on"
+msgstr "Был(а) в сети"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:35
+msgid "Followers"
+msgstr "Подписчики"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:44
+msgid "Following"
+msgstr "Подписки"
+
+#: app/blueprints/user/templates/profile.html:15
+msgid "Edit your profile"
+msgstr "Редактировать профиль"
+
+#: app/blueprints/user/templates/profile.html:20
+#: app/blueprints/user/templates/user_popup.html:15
+msgid "Follow"
+msgstr "Подписаться"
+
+#: app/blueprints/user/templates/profile.html:27
+#: app/blueprints/user/templates/user_popup.html:22
+msgid "Unfollow"
+msgstr "Отписаться"
+
+#: app/blueprints/user/templates/profile.html:34
+msgid "Chat With User"
+msgstr "Чат с пользователем"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d подписчиков"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d подписок"
+
+#: app/templates/_bookcomment.html:16
+#, python-format
+msgid "%(username)s says:"
+msgstr "%(username)s пишет:"
+
+#: app/templates/_bookcomment.html:29 app/templates/_comment.html:35
+msgid "Delete"
+msgstr "Удалить"
+
+#: app/templates/_comment.html:22
+#, python-format
+msgid "%(username)s commented on %(book_name)s"
+msgstr "%(username)s прокомментировал %(book_name)s"
+
+#: app/templates/_user_card.html:21
+msgid "Active"
+msgstr "Активен"
+
+#: app/templates/_user_card.html:21
+msgid "Never"
+msgstr "Никогда"
+
+#: app/templates/_user_card.html:28
+msgid "No bio written yet."
+msgstr "Биография пока не заполнена."
+
+#: app/templates/base.html:20
+msgid "Welcome - BookBound"
+msgstr "Добро пожаловать - BookBound"
+
+#: app/templates/base.html:89
+msgid "Messages"
+msgstr "Сообщения"
+
+#: app/templates/base.html:102
+msgid "Sign Out"
+msgstr "Выйти"
+
+#: app/templates/macros.html:7
+msgid "Newer"
+msgstr "Новее"
+
+#: app/templates/macros.html:7
+msgid "Previous"
+msgstr "Предыдущая"
+
+#: app/templates/macros.html:7 app/templates/macros.html:12
+#, python-format
+msgid "%(label)s"
+msgstr "%(label)s"
+
+#: app/templates/macros.html:12
+msgid "Older"
+msgstr "Старее"
+
+#: app/templates/macros.html:12
+msgid "Next"
+msgstr "Следующая"

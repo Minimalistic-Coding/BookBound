@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'macros.html' as pag %}
+
+{% block content %}
+
+	<h1>{{ _("Feed") }}</h1>
+	{% for comment in comments %}
+
+		{% include '_comment.html' %}
+
+	{% else %}
+
+		<p>{{ _("No comments from users you follow. Follow someone to see their comments!") }}</p>
+
+	{% endfor %}
+	
+	<!-- Pagination for comments -->
+    <div class="d-flex justify-content-center mt-4">
+        {{ pag.pagination_widgets(prev_url, next_url, aria_label="Comment", label="Comments") }}
+    </div>
+
+{% endblock %}

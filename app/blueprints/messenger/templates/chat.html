@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Viewport container that adapts to mobile virtual keyboards safely -->
+<div class="d-flex flex-column justify-content-between p-3" style="height: calc(100vh - 70px); max-height: calc(100vh - 70px); overflow: hidden; width: 100%;">
+    
+    <!-- 1. Header Area: Back Arrow Link and Username Container -->
+    <div class="d-flex align-items-center pb-2 mb-3 border-bottom border-secondary-subtle style-shrink-none">
+        <!-- Bootstrap Icons back arrow wrapping back to your inbox route -->
+        <a href="{{ url_for('messenger.inbox') }}" class="btn btn-link text-dark p-0 me-3 transition-transform hover-scale" aria-label="{{ _('Back to inbox') }}">
+            <!-- FIXED: Corrected the broken SVG xmlns URL link framework attribute -->
+            <svg xmlns="http://w3.org" width="26" height="26" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"/>
+            </svg>
+        </a>
+        
+        <img src="{{ url_for('user.static', filename='avatars/' + user.avatar_id|string + '.svg') }}" 
+             alt="{{ user.username }}'s avatar"
+             class="rounded-circle bg-light border border-light-subtle me-2"
+             style="width: 44px; height: 44px; object-fit: cover;">
+        <div>
+            <h1 class="h5 fw-bold m-0 text-dark">{{ user.username }}</h1>
+        </div>
+    </div>
+
+    <!-- 2. Chat Feed Container Window -->
+    <div id="chat-window" class="d-flex flex-column overflow-y-auto px-2 py-3 bg-white rounded-4 border border-light-subtle flex-grow-1 hide-scrollbar mb-3" 
+         style="gap: 16px; min-height: 0;">
+        
+        {% if messages %}
+            {% for msg in messages %}
+                
+                {# Determine if the logged-in current_user sent this specific message #}
+                {% if msg.sender_id == current_user.id %}
+                    <!-- Outbound Message Block -->
+                    <div class="d-flex flex-column align-items-end align-self-end text-end message-bubble" data-msg-id="{{ msg.id }}" style="max-width: 75%; width: fit-content;">
+                        <div class="bg-primary text-white py-2 px-3 rounded-4 shadow-sm fw-medium text-start d-inline-block break-word" style="width: fit-content;">{{ msg.body }}</div>
+                        <small class="text-muted mt-1 px-1" style="font-size: 0.72rem;">
+                            <!-- WRAPPED FOR FLASK-BABEL: Renders localized timestamp configuration loops safely -->
+                            {{ moment(msg.timestamp).format('LT') }}
+                        </small>
+                    </div>
+                {% else %}
+                    <!-- Inbound Message Block -->
+                    <div class="d-flex flex-column align-items-start align-self-start text-start message-bubble" data-msg-id="{{ msg.id }}" style="max-width: 75%; width: fit-content;">
+                        <div class="bg-light text-dark py-2 px-3 rounded-4 shadow-sm border border-light-subtle fw-medium text-start d-inline-block break-word" style="width: fit-content;">{{ msg.body }}</div>
+                        <small class="text-muted mt-1 px-1" style="font-size: 0.72rem;">
+                            <!-- WRAPPED FOR FLASK-BABEL: Consistent localized time conversions -->
+                            {{ moment(msg.timestamp).format('LT') }}
+                        </small>
+                    </div>
+                {% endif %}
+
+            {% endfor %}
+        {% else %}
+            <!-- Layout placeholder for clean chat history slates -->
+            <div id="empty-placeholder" class="text-center my-auto py-5 text-muted opacity-75">
+                <span class="display-5 mb-2 d-block">👋</span>
+                <p class="mb-0 fw-medium">{{ _('This is the start of your message history with %(username)s.', username=user.username) }}</p>
+            </div>
+        {% endif %}
+
+    </div>
+
+    <!-- 3. Bottom Text Message Input Bar View -->
+    <div class="input-group input-group-lg style-shrink-none">
+        <input type="text" 
+               id="message-input"
+               class="form-control rounded-start-4 border-secondary-subtle px-3 fs-6" 
+               placeholder="{{ _('Type a message...') }}">
+        <button id="send-btn" class="btn btn-primary rounded-end-4 px-4 fw-bold fs-6" type="button">
+            {{ _('Send') }}
+        </button>
+    </div>
+
+</div>
+
+
+
+<!-- Load the Socket.io client library bundle -->
+<script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
+
+<script>
+    const partnerId = parseInt("{{ user.id }}");
+    const secureToken = "{{ token }}";
+    const currentUserId = parseInt("{{ current_user.id }}");
+
+    const chatWindow = document.getElementById('chat-window');
+    const msgInput = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-btn');
+    const emptyPlaceholder = document.getElementById('empty-placeholder');
+
+    if (chatWindow) {
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // Connection Object Setup
+    const socket = io(window.location.origin, {
+        query: {
+            token: secureToken
+        }
+    });
+
+    // Connecting to Server
+    socket.on('connect', () => {
+        msgInput.disabled = false;
+        sendBtn.disabled = false;
+        sendBtn.innerText = "Send";
+        msgInput.placeholder = "Type a message..."; 
+
+        socket.emit('join_chat', {
+            partner_id: partnerId
+        });
+    });
+
+    socket.on('disconnect', (reason) => {
+        msgInput.disabled = true;
+        sendBtn.disabled = true;
+        sendBtn.innerText = "Reconnecting...";
+        msgInput.placeholder = "Connection lost. Reconnecting...";
+
+        if (reason === "io client disconnect") return;
+
+        socket.emit('leave_chat', {
+            partner_id: partnerId
+        });
+    });
+
+    socket.on('connect_error', (error) => {
+        sendBtn.innerText = "Offline";
+        msgInput.placeholder = "Session expired. Please refresh the page";
+    });
+
+    function sendMessage() {
+        const bodyText = msgInput.value.trim();
+        if (!bodyText) return;
+
+        msgInput.disabled = true;
+        sendBtn.disabled = true;
+
+        socket.emit('send_message', {
+            recipient_id: partnerId,
+            body: bodyText
+        }, (response) => {
+            msgInput.disabled = false;
+            sendBtn.disabled = false;
+
+            if (response && response.status === 'ok') {
+                msgInput.value = "";
+                msgInput.focus();
+            } else {
+                alert('Failed to send message. Please try again.')
+            }
+        });
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+
+    msgInput.addEventListener('keydown', (e) => {
+    // Only send if Enter is pressed WITHOUT holding Shift
+    if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); 
+            sendMessage();
+        }
+    });
+
+    function createMessage(sender_id, msg_id, body, timestamp) {
+        const isMe = parseInt(sender_id) === currentUserId;
+
+        const msgcontainerDiv = document.createElement('div')
+        msgcontainerDiv.className = isMe ? 'd-flex flex-column align-items-end align-self-end text-end message-bubble': 'd-flex flex-column align-items-start align-self-start text-start message-bubble';
+
+        msgcontainerDiv.setAttribute('data-msg-id', msg_id);
+        msgcontainerDiv.style.maxWidth = '75%';
+        msgcontainerDiv.style.width = "fit-content";
+
+        const msgDiv = document.createElement('div')
+        msgDiv.className = isMe ? "bg-primary text-white py-2 px-3 rounded-4 shadow-sm fw-medium text-start d-inline-block break-word" : "bg-light text-dark py-2 px-3 rounded-4 shadow-sm border border-light-subtle fw-medium text-start d-inline-block break-word";
+        msgDiv.style.width = "fit-content";
+        msgDiv.textContent = body;
+
+        const msgTime = document.createElement('small');
+        msgTime.className = "text-muted mt-1 px-1";
+        msgTime.style.fontSize = "0.72rem";
+        msgTime.textContent = moment(timestamp).format('LT');
+
+        msgcontainerDiv.appendChild(msgDiv);
+        msgcontainerDiv.appendChild(msgTime);
+
+        // const bubbleHtml = createMessageBubble(data.id, data.body, data.timestamp, isMe);
+        return msgcontainerDiv;
+    }
+
+    socket.on('new_message', (data) => {
+        if (emptyPlaceholder) {
+            emptyPlaceholder.remove();
+        }
+
+        const msgBubble = createMessage(data.sender_id, data.id, data.body, data.timestamp);
+        chatWindow.appendChild(msgBubble);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    });
+
+    let isLoadingHistory = false;
+
+    chatWindow.addEventListener('scroll', () => {
+        if (chatWindow.scrollTop === 0 && !isLoadingHistory) {
+            const firstBubble = chatWindow.querySelector('.message-bubble');
+            if (!firstBubble) return;
+
+            const oldestId = parseInt(firstBubble.getAttribute('data-msg-id'));
+            isLoadingHistory = true;
+
+            socket.emit('load_history', {
+                partner_id: partnerId,
+                oldest_msg_id: oldestId
+            });
+        }
+    });
+
+    socket.on('history_loaded', (data) => {
+        if (!data.messages || data.messages.length === 0) {
+            isLoadingHistory = false
+            return;
+        }
+
+        const heightBeforeInsertion = chatWindow.scrollHeight;
+
+        const memoryFragment = document.createDocumentFragment();
+
+        data.messages.forEach((msg) => {
+            const msgBubble = createMessage(msg.sender_id, msg.id, msg.body, msg.timestamp);
+            memoryFragment.appendChild(msgBubble);
+        });
+
+        chatWindow.insertBefore(memoryFragment, chatWindow.firstChild);
+
+        chatWindow.scrollTop = chatWindow.scrollHeight - heightBeforeInsertion;
+        isLoadingHistory = false;
+    });
+
+</script>
+
+<style>
+    /* Prevent wrapping gaps and respect line-breaks */
+    .break-word {
+        word-break: break-word;
+        white-space: pre-wrap;
+    }
+
+    /* CRITICAL FIX: Explicitly prevents the header and input boxes from shrinking or collapsing */
+    .style-shrink-none {
+        flex-shrink: 0 !important;
+    }
+    
+    .hover-scale:hover {
+        transform: scale(1.1);
+    }
+
+    /* HIDES SCROLLBAR COMPLETELY across PC and Mobile Engines */
+    .hide-scrollbar {
+        -ms-overflow-style: none;  /* Internet Explorer / Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Safari and Chrome (Mobile and Desktop) */
+    }
+</style>
+{% endblock %}

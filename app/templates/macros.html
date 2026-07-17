@@ -1,0 +1,18 @@
+{% macro pagination_widgets(prev_url, next_url, aria_label, label) %}
+	
+	<nav aria-label="{{ aria_label }} navigation" class="pagination justify-content-center">
+		<ul class="pagination">
+			<li class="page-item{% if not prev_url %} disabled{% endif %}">
+				<a class="page-link" href="{{ prev_url }}">
+					<span aria-hidden="true">&larr;</span>{% if label == 'Comments' %} {{ _("Newer") }} {% else %} {{ _("Previous") }} {% endif %} {{ _("%(label)s", label=label) }}
+				</a>
+			</li>
+			<li class="page-item{% if not next_url %} disabled{% endif %}">
+				<a class="page-link" href="{{ next_url }}">
+					{% if label == 'Comments' %} {{ _("Older") }} {% else %} {{ _("Next") }} {% endif %}{{ _("%(label)s", label=label) }} <span aria-hidden="true">&rarr;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+{% endmacro %}

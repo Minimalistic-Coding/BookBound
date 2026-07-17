@@ -1,0 +1,527 @@
+# Arabic translations for BookBound.
+# Copyright (C) 2026
+# This file is distributed under the same license as the BookBound project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BookBound VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-14 21:22+0500\n"
+"PO-Revision-Date: 2026-06-13 20:30+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : "
+"n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/__init__.py:30
+msgid "Please log in to access this page."
+msgstr "يرجى تسجيل الدخول للوصول إلى هذه الصفحة."
+
+#: app/blueprints/auth/email.py:8
+msgid "[BookBound] - Reset Password"
+msgstr "[BookBound] - إعادة تعيين كلمة المرور"
+
+#: app/blueprints/auth/forms.py:13 app/blueprints/auth/forms.py:22
+#: app/blueprints/user/forms.py:13
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: app/blueprints/auth/forms.py:14 app/blueprints/auth/forms.py:24
+#: app/blueprints/auth/forms.py:51
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: app/blueprints/auth/forms.py:15
+msgid "Remember Me"
+msgstr "تذكرني"
+
+#: app/blueprints/auth/forms.py:16
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+#: app/blueprints/auth/forms.py:23 app/blueprints/auth/forms.py:45
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: app/blueprints/auth/forms.py:25 app/blueprints/auth/forms.py:53
+msgid "Repeat Password"
+msgstr "إعادة كلمة المرور"
+
+#: app/blueprints/auth/forms.py:26 app/blueprints/auth/routes.py:64
+#: app/blueprints/auth/templates/register.html:5
+msgid "Register"
+msgstr "تسجيل"
+
+#: app/blueprints/auth/forms.py:33 app/blueprints/user/forms.py:34
+msgid "Please use different Username!"
+msgstr "يرجى استخدام اسم مستخدم مختلف!"
+
+#: app/blueprints/auth/forms.py:40
+msgid "Please use different Email!"
+msgstr "يرجى استخدام بريد إلكتروني مختلف!"
+
+#: app/blueprints/auth/forms.py:46
+msgid "Request Password Reset"
+msgstr "طلب إعادة تعيين كلمة المرور"
+
+#: app/blueprints/auth/forms.py:54
+msgid "Password Reset"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: app/blueprints/auth/routes.py:26
+msgid "Invalid Username or Password!"
+msgstr "اسم المستخدم أو كلمة المرور غير صحيحة!"
+
+#: app/blueprints/auth/routes.py:37 app/blueprints/auth/templates/login.html:6
+#: app/templates/base.html:81
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+#: app/blueprints/auth/routes.py:61
+msgid "Congratulations, you are now a registered user!"
+msgstr "تهانينا، أصبحت الآن مستخدمًا مسجلاً!"
+
+#: app/blueprints/auth/routes.py:79
+msgid "Check your email for the instructions to reset your password!"
+msgstr "تحقق من بريدك الإلكتروني للحصول على تعليمات إعادة تعيين كلمة المرور!"
+
+#: app/blueprints/auth/routes.py:82 app/blueprints/auth/routes.py:102
+#: app/blueprints/auth/templates/reset_password_request.html:6
+msgid "Reset Password"
+msgstr "إعادة تعيين كلمة المرور"
+
+#: app/blueprints/auth/routes.py:100
+msgid "Your password has been reset."
+msgstr "تم إعادة تعيين كلمة المرور الخاصة بك."
+
+#: app/blueprints/auth/templates/login.html:10
+msgid "New User?"
+msgstr "مستخدم جديد؟"
+
+#: app/blueprints/auth/templates/login.html:11
+msgid "Click to Register!"
+msgstr "انقر للتسجيل!"
+
+#: app/blueprints/auth/templates/login.html:14
+msgid "Forgot Your Password?"
+msgstr "نسيت كلمة المرور؟"
+
+#: app/blueprints/auth/templates/login.html:15
+msgid "Click to Reset It"
+msgstr "انقر لإعادة تعيينها"
+
+#: app/blueprints/auth/templates/reset_password.html:5
+msgid "Reset Your Password"
+msgstr "إعادة تعيين كلمة المرور الخاصة بك"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:4
+#, python-format
+msgid "Dear %(username)s,"
+msgstr "عزيزي %(username)s،"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:6
+msgid "To reset your password"
+msgstr "لإعادة تعيين كلمة المرور الخاصة بك"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:8
+msgid "click here"
+msgstr "انقر هنا"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:11
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar:"
+msgstr "بدلاً من ذلك، يمكنك لصق الرابط التالي في شريط عنوان المتصفح:"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:13
+msgid "If you have not requested a password reset simply ignore this message."
+msgstr "إذا لم تطلب إعادة تعيين كلمة المرور، فقط تجاهل هذه الرسالة."
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:14
+msgid "Sincerely,"
+msgstr "مع خالص التقدير،"
+
+#: app/blueprints/auth/templates/email_messages/reset_password.html:15
+msgid "The BookBound Team"
+msgstr "فريق BookBound"
+
+#: app/blueprints/errors/templates/404.html:10
+msgid "Page Not Found"
+msgstr "الصفحة غير موجودة"
+
+#: app/blueprints/errors/templates/404.html:11
+msgid "The page you're looking for doesn't exist or has been moved."
+msgstr "الصفحة التي تبحث عنها غير موجودة أو تم نقلها."
+
+#: app/blueprints/errors/templates/404.html:13
+#: app/blueprints/errors/templates/500.html:14
+msgid "Back to Home"
+msgstr "العودة إلى الرئيسية"
+
+#: app/blueprints/errors/templates/500.html:10
+msgid "Server Error"
+msgstr "خطأ في الخادم"
+
+#: app/blueprints/errors/templates/500.html:11
+msgid ""
+"Something went wrong on our end. We've been notified and are looking into"
+" it."
+msgstr "حدث خطأ من جانبنا. لقد تم إخطارنا ونحن نبحث في الأمر."
+
+#: app/blueprints/errors/templates/500.html:12
+msgid "Please try again later."
+msgstr "يرجى المحاولة مرة أخرى لاحقًا."
+
+#: app/blueprints/main/forms.py:8
+msgid "Add Your Comment:"
+msgstr "أضف تعليقك:"
+
+#: app/blueprints/main/forms.py:10 app/blueprints/user/forms.py:22
+msgid "Submit"
+msgstr "إرسال"
+
+#: app/blueprints/main/forms.py:13 app/blueprints/main/routes.py:51
+msgid "Search"
+msgstr "بحث"
+
+#: app/blueprints/main/forms.py:14
+msgid "Filter"
+msgstr "فلتر"
+
+#: app/blueprints/main/forms.py:15
+msgid "Books"
+msgstr "الكتب"
+
+#: app/blueprints/main/forms.py:16
+msgid "Users"
+msgstr "المستخدمين"
+
+#: app/blueprints/main/routes.py:30 app/templates/base.html:62
+msgid "Home"
+msgstr "الرئيسية"
+
+#: app/blueprints/main/routes.py:69
+msgid "Book Not Available!"
+msgstr "الكتاب غير متوفر!"
+
+#: app/blueprints/main/routes.py:98
+msgid "Comment Successfully Uploaded!"
+msgstr "تم رفع التعليق بنجاح!"
+
+#: app/blueprints/main/routes.py:123 app/blueprints/main/templates/feed.html:6
+#: app/templates/base.html:85
+msgid "Feed"
+msgstr "التغذية"
+
+#: app/blueprints/main/templates/book.html:22
+msgid "Description"
+msgstr "الوصف"
+
+#: app/blueprints/main/templates/book.html:30
+msgid "Comments"
+msgstr "التعليقات"
+
+#: app/blueprints/main/templates/book.html:37
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+#: app/blueprints/main/templates/book.html:43
+msgid "No comments yet. Be the first!"
+msgstr "لا توجد تعليقات بعد. كن أول من يعلق!"
+
+#: app/blueprints/main/templates/book_popup.html:2
+msgid "Cover of"
+msgstr "غلاف"
+
+#: app/blueprints/main/templates/book_popup.html:13
+msgid "In stock"
+msgstr "متوفر"
+
+#: app/blueprints/main/templates/feed.html:13
+msgid "No comments from users you follow. Follow someone to see their comments!"
+msgstr "لا توجد تعليقات من المستخدمين الذين تتابعهم. تابع شخصًا ما لترى تعليقاته!"
+
+#: app/blueprints/main/templates/index.html:9
+msgid "Library Collection"
+msgstr "مجموعة المكتبة"
+
+#: app/blueprints/main/templates/index.html:10
+msgid "Browse the latest additions to the catalog."
+msgstr "تصفح أحدث الإضافات إلى الكتالوج."
+
+#: app/blueprints/main/templates/index.html:23
+msgid "No books available"
+msgstr "لا توجد كتب متاحة"
+
+#: app/blueprints/main/templates/index.html:24
+msgid ""
+"Fire up your background scraping service to populate the database with "
+"new titles!"
+msgstr "قم بتشغيل خدمة الاستخراج الخلفية لملء قاعدة البيانات بعناوين جديدة!"
+
+#: app/blueprints/main/templates/search_book.html:9
+msgid "Library Search"
+msgstr "البحث في المكتبة"
+
+#: app/blueprints/main/templates/search_book.html:11
+msgid "Results for"
+msgstr "نتائج البحث عن"
+
+#: app/blueprints/main/templates/search_book.html:16
+#, python-format
+msgid "Found %(count)d books"
+msgstr "تم العثور على %(count)d كتاب"
+
+#: app/blueprints/main/templates/search_book.html:31
+msgid "No books found"
+msgstr "لم يتم العثور على كتب"
+
+#: app/blueprints/main/templates/search_book.html:32
+msgid ""
+"We couldn't find any titles matching your search. Try checking the "
+"spelling or using broader keywords."
+msgstr ""
+"لم نتمكن من العثور على أي عناوين تطابق بحثك. حاول التحقق من الهجاء أو "
+"استخدام كلمات مفتاحية أوسع."
+
+#: app/blueprints/main/templates/search_user.html:9
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: app/blueprints/main/templates/search_user.html:11
+msgid "Showing matches for"
+msgstr "عرض النتائج المطابقة لـ"
+
+#: app/blueprints/main/templates/search_user.html:16
+#, python-format
+msgid "Found %(count)d profiles"
+msgstr "تم العثور على %(count)d ملف شخصي"
+
+#: app/blueprints/main/templates/search_user.html:27
+msgid "No users found"
+msgstr "لم يتم العثور على مستخدمين"
+
+#: app/blueprints/main/templates/search_user.html:28
+msgid ""
+"We couldn't find anyone matching your search query. Try adjusting your "
+"spelling or using different keywords."
+msgstr ""
+"لم نتمكن من العثور على أي شخص يطابق استعلام البحث الخاص بك. حاول ضبط "
+"الهجاء أو استخدام كلمات مفتاحية مختلفة."
+
+#: app/blueprints/messenger/routes.py:59
+msgid "You cannot message yourself!"
+msgstr "لا يمكنك مراسلة نفسك!"
+
+#: app/blueprints/messenger/routes.py:80
+#, python-format
+msgid "Chat with %(username)s"
+msgstr "محادثة مع %(username)s"
+
+#: app/blueprints/messenger/templates/chat.html:10
+msgid "Back to inbox"
+msgstr "العودة إلى صندوق الوارد"
+
+#: app/blueprints/messenger/templates/chat.html:59
+#, python-format
+msgid "This is the start of your message history with %(username)s."
+msgstr "هذه بداية تاريخ محادثاتك مع %(username)s."
+
+#: app/blueprints/messenger/templates/chat.html:70
+msgid "Type a message..."
+msgstr "اكتب رسالة..."
+
+#: app/blueprints/messenger/templates/chat.html:72
+msgid "Send"
+msgstr "إرسال"
+
+#: app/blueprints/messenger/templates/inbox.html:12
+msgid "Chats"
+msgstr "المحادثات"
+
+#: app/blueprints/messenger/templates/inbox.html:15
+#, python-format
+msgid "%(count)s conversations"
+msgstr ""
+"%(count)s محادثات"
+
+#: app/blueprints/messenger/templates/inbox.html:30
+#, python-format
+msgid "%(username)s's avatar"
+msgstr "الصورة الرمزية لـ %(username)s"
+
+#: app/blueprints/messenger/templates/inbox.html:43
+#, python-format
+msgid "View %(username)s's profile"
+msgstr "عرض ملف %(username)s الشخصي"
+
+#: app/blueprints/messenger/templates/inbox.html:56
+msgid "You:"
+msgstr "أنت:"
+
+#: app/blueprints/messenger/templates/inbox.html:69
+msgid "No conversations yet"
+msgstr "لا توجد محادثات بعد"
+
+#: app/blueprints/messenger/templates/inbox.html:71
+msgid "Visit a member's profile and send them a message to start chatting."
+msgstr "قم بزيارة ملف عضو وأرسل له رسالة لبدء المحادثة."
+
+#: app/blueprints/user/forms.py:14
+msgid "About Me"
+msgstr "عني"
+
+#: app/blueprints/user/forms.py:15
+msgid "Language"
+msgstr "اللغة"
+
+#: app/blueprints/user/routes.py:30 app/templates/base.html:99
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: app/blueprints/user/routes.py:60
+msgid "Your changes have been saved!"
+msgstr "تم حفظ تغييراتك!"
+
+#: app/blueprints/user/routes.py:67
+#: app/blueprints/user/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "تعديل الملف الشخصي"
+
+#: app/blueprints/user/routes.py:80 app/blueprints/user/routes.py:105
+#, python-format
+msgid "User: %(username)s not found!"
+msgstr "المستخدم: %(username)s غير موجود!"
+
+#: app/blueprints/user/routes.py:84
+msgid "You can't follow userself!"
+msgstr "لا يمكنك متابعة نفسك!"
+
+#: app/blueprints/user/routes.py:89
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "أنت تتابع %(username)s!"
+
+#: app/blueprints/user/routes.py:109
+msgid "You can't unfollow userself!"
+msgstr "لا يمكنك إلغاء متابعة نفسك!"
+
+#: app/blueprints/user/routes.py:114
+#, python-format
+msgid "You unfollowed %(username)s!"
+msgstr "لقد ألغيت متابعة %(username)s!"
+
+#: app/blueprints/user/templates/edit_profile.html:25
+msgid "Choose Avatar:"
+msgstr "اختر الصورة الرمزية:"
+
+#: app/blueprints/user/templates/profile.html:10
+msgid "User"
+msgstr "المستخدم"
+
+#: app/blueprints/user/templates/profile.html:12
+#: app/blueprints/user/templates/user_popup.html:7
+msgid "Last seen on"
+msgstr "آخر ظهور"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:35
+msgid "Followers"
+msgstr "المتابِعون"
+
+#: app/blueprints/user/templates/profile.html:13
+#: app/templates/_user_card.html:44
+msgid "Following"
+msgstr "المتابَعون"
+
+#: app/blueprints/user/templates/profile.html:15
+msgid "Edit your profile"
+msgstr "تعديل ملفك الشخصي"
+
+#: app/blueprints/user/templates/profile.html:20
+#: app/blueprints/user/templates/user_popup.html:15
+msgid "Follow"
+msgstr "متابعة"
+
+#: app/blueprints/user/templates/profile.html:27
+#: app/blueprints/user/templates/user_popup.html:22
+msgid "Unfollow"
+msgstr "إلغاء المتابعة"
+
+#: app/blueprints/user/templates/profile.html:34
+msgid "Chat With User"
+msgstr "محادثة مع المستخدم"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d متابع"
+
+#: app/blueprints/user/templates/user_popup.html:9
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d متابَع"
+
+#: app/templates/_bookcomment.html:16
+#, python-format
+msgid "%(username)s says:"
+msgstr "%(username)s يقول:"
+
+#: app/templates/_bookcomment.html:29 app/templates/_comment.html:35
+msgid "Delete"
+msgstr "حذف"
+
+#: app/templates/_comment.html:22
+#, python-format
+msgid "%(username)s commented on %(book_name)s"
+msgstr "%(username)s علّق على %(book_name)s"
+
+#: app/templates/_user_card.html:21
+msgid "Active"
+msgstr "نشط"
+
+#: app/templates/_user_card.html:21
+msgid "Never"
+msgstr "أبداً"
+
+#: app/templates/_user_card.html:28
+msgid "No bio written yet."
+msgstr "لم يتم كتابة سيرة ذاتية بعد."
+
+#: app/templates/base.html:20
+msgid "Welcome - BookBound"
+msgstr "مرحبًا - BookBound"
+
+#: app/templates/base.html:89
+msgid "Messages"
+msgstr "الرسائل"
+
+#: app/templates/base.html:102
+msgid "Sign Out"
+msgstr "تسجيل الخروج"
+
+#: app/templates/macros.html:7
+msgid "Newer"
+msgstr "أحدث"
+
+#: app/templates/macros.html:7
+msgid "Previous"
+msgstr "السابق"
+
+#: app/templates/macros.html:7 app/templates/macros.html:12
+#, python-format
+msgid "%(label)s"
+msgstr "%(label)s"
+
+#: app/templates/macros.html:12
+msgid "Older"
+msgstr "أقدم"
+
+#: app/templates/macros.html:12
+msgid "Next"
+msgstr "التالي"

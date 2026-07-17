@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4 py-md-5">
+    <div class="row">
+        <!-- Full edge-to-edge layout across the entire screen na on PC -->
+        <div class="col-12">
+
+            <!-- Section Header -->
+            <div class="mb-5 pb-3 border-bottom border-light-subtle d-flex align-items-center">
+                <h1 class="fw-black text-dark m-0 tracking-tight" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">
+                    {{ _('Chats') }}
+                </h1>
+                <span class="ms-auto text-muted small fw-medium opacity-75">
+                    {{ _('%(count)s conversations', count=inbox_data|length) }}
+                </span>
+            </div>
+
+            <!-- Conversation Feed -->
+            <div class="d-flex flex-column gap-3">
+                {% if inbox_data %}
+                    {% for item in inbox_data %}
+                        <!-- Row (Clicking anywhere triggers native browser routing to the chat page) -->
+                        <div class="d-flex align-items-center py-3 px-2 px-md-3 chat-row position-relative"
+                             onclick="if(!event.target.closest('.no-row-click')) window.location.href='{{ url_for('messenger.chat', username=item.user.username) }}';">
+                            
+                            <!-- Avatar (Added .no-row-click so clicking it doesn't fight with the avatar's native events) -->
+                            <div class="avatar-wrapper me-3 flex-shrink-0 no-row-click">
+                                <img src="{{ url_for('user.static', filename='avatars/' + item.user.avatar_id|string + '.svg') }}" 
+                                     alt="{{ _('%(username)s\'s avatar', username=item.user.username) }}"
+                                     class="rounded-circle chat-avatar user_popup"
+                                     loading="lazy">
+                            </div>
+                            
+                            <!-- Content Box -->
+                            <div class="flex-grow-1 min-w-0">
+                                <div class="d-flex justify-content-between align-items-baseline mb-1">
+                                    
+                                    <!-- Username Header (Wrapped in .no-row-click to fully preserve your popover hover listener) -->
+                                    <h2 class="mb-0 text-truncate chat-name no-row-click">
+                                        <a href="{{ url_for('user.user_profile', username=item.user.username) }}" 
+                                           class="fw-bold text-dark text-decoration-none user_popup"
+                                           title="{{ _('View %(username)s\'s profile', username=item.user.username) }}">
+                                            {{ item.user.username }}
+                                        </a>
+                                    </h2>
+                                    
+                                    <!-- Timestamp Grid Frame -->
+                                    <small class="text-muted flex-shrink-0 ms-2 chat-time fw-medium">
+                                        {{ moment(item.msg.timestamp).fromNow() }}
+                                    </small>
+                                    
+                                </div>
+                                <p class="mb-0 text-truncate chat-preview" style="max-width: 98%;">
+                                    {% if item.msg.sender_id == current_user.id %}
+                                        <span class="text-muted fw-semibold me-1 opacity-75">{{ _('You:') }}</span>
+                                        <span class="text-secondary opacity-90">{{ item.msg.body }}</span>
+                                    {% else %}
+                                        <span class="text-dark fw-medium opacity-90">{{ item.msg.body }}</span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Empty State Fallback -->
+                    <div class="text-center py-5 my-4">
+                        <div class="mb-4 empty-icon" style="font-size: 4rem; line-height: 1;">💬</div>
+                        <h4 class="text-dark fw-bold mb-2">{{ _('No conversations yet') }}</h4>
+                        <p class="text-muted mb-0 mx-auto small" style="max-width: 340px; letter-spacing: -0.01em; line-height: 1.6;">
+                            {{ _('Visit a member\'s profile and send them a message to start chatting.') }}
+                        </p>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Styles Parameters Config -->
+<style>
+    /* ---------- Typography & Spacing ---------- */
+    .tracking-tight { letter-spacing: -0.03em; }
+    
+    .chat-row {
+        border-radius: 14px;
+        transition: background 0.2s ease, transform 0.15s ease;
+        padding: 0.75rem 0.75rem;
+    }
+    @media (min-width: 768px) {
+        .chat-row {
+            padding: 1.25rem 1.5rem;
+        }
+    }
+    .chat-row:hover {
+        background: rgba(13, 110, 253, 0.04);
+        transform: translateX(4px);
+    }
+    
+    /* Left accent vertical indicator strip indicator */
+    .chat-row::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 20%;
+        bottom: 20%;
+        width: 4px;
+        background: #0d6efd;
+        border-radius: 0 4px 4px 0;
+        opacity: 0;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        transform: scaleY(0.6);
+    }
+    .chat-row:hover::before {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    /* ---------- Avatar Features ---------- */
+    .avatar-wrapper {
+        position: relative;
+        flex-shrink: 0;
+    }
+    .chat-avatar {
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .chat-avatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    @media (min-width: 768px) {
+        .chat-avatar {
+            width: 68px;
+            height: 68px;
+        }
+    }
+
+    /* ---------- Text Elements Formatting Parameters ---------- */
+    .chat-name {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+    
+    /* Base link interaction color setups */
+    .chat-name a {
+        transition: color 0.15s ease;
+    }
+    
+    /* Highlights username blue if mouse hovers precisely over the link string */
+    .chat-name a:hover {
+        color: #0d6efd !important;
+    }
+    
+    .chat-time {
+        font-size: 0.78rem;
+        color: #6c757d;
+        font-weight: 500;
+    }
+    .chat-preview {
+        font-size: 0.92rem;
+        color: #495057;
+        line-height: 1.4;
+    }
+    @media (min-width: 768px) {
+        .chat-name { font-size: 1.25rem; }
+        .chat-preview { font-size: 1rem; }
+        .chat-time { font-size: 0.85rem; }
+    }
+
+    /* ---------- Empty Placeholder Design Element ---------- */
+    .empty-icon {
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+    }
+    .empty-icon:hover {
+        opacity: 0.8;
+    }
+</style>
+{% endblock %}
