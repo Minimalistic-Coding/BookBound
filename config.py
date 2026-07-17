@@ -15,6 +15,8 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS', '').split(',')
 
+    DOMAINS = os.environ.get('DOMAINS')
+
     ITEMS_PER_PAGE = 24
     MESSAGES_PER_CHAT = 20
 
