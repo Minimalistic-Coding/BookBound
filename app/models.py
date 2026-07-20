@@ -323,7 +323,7 @@ def load_user(id):
 
 # ------------------------------------------ BOOK MODEL ---------------------------------------------------------
 
-class Book(SearchableMixin, db.Model):
+class Book(PaginatedAPIMixin, SearchableMixin, db.Model):
 
 	__searchable__ = ['title', 'description']
 	__tablename__ = "books"
@@ -337,6 +337,22 @@ class Book(SearchableMixin, db.Model):
 	cover: Mapped[str] = mapped_column(String(500), nullable=False)
 
 	book_comments: WriteOnlyMapped['Comment'] = relationship(back_populates='book')
+
+	def to_dict(self):
+		data = {
+			"id": self.id,
+			"title": self.title,
+			"price": self.price,
+			"rating": self.rating,
+			"availability": self.availability,
+			"description": self.description, 
+			"_links" : {
+				"self": url_for("api.get_book", id=self.id), #add route for this
+				"cover": self.cover
+			}
+		}
+
+		return data
 
 	def __repr__(self):
 		return f"Book <{self.title}>"
@@ -355,6 +371,21 @@ class Comment(db.Model):
 
 	book: Mapped['Book'] = relationship(back_populates="book_comments")
 	author: Mapped['User'] = relationship(back_populates="user_comments")
+
+	def to_dict(self):
+		data = {
+			"id": self.id,
+			"body": self.body,
+			"timestamp": self.timestamp.replace(
+				tzinfo=timezone.utc).isoformat() if self.timestamp else None,
+			"author": self.author.to_dict(),
+			"book": self.book.to_dict(),
+
+			"_links" : {
+				"author": url_for('api.get_user', id=self.author.id),
+				"book": url_for('api.get_book', id=self.book.id) # add route for this
+			}
+		}
 
 	def __repr__(self):
 		return f"Comment <{self.id}, author={self.user_id}>"
