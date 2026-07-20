@@ -3,7 +3,7 @@ import sqlalchemy as sa
 from app.blueprints.api import bp
 from app.blueprints.api.errors import bad_request
 from app.blueprints.api.auth import token_auth
-from app.models import User
+from app.models import User, Comment
 from app import db
 
 @bp.route('/users/<int:id>', methods=['GET'])
@@ -35,6 +35,15 @@ def get_following(id):
     per_page = min(request.args.get('per_page', 10, type=int), 100)
     return User.to_collection_dict(user.following.select(), page, per_page,
                                    'api.get_following', id=id)
+
+@bp.route('/users/<int:id>/comments', methods=['GET'])
+@token_auth.login_required
+def get_user_comments(id):
+    user = db.get_or_404(User, id)
+    page = request.args.get('page', 1, type=int)
+    per_page = min(request.args.get('per_page', 10, type=int), 100)
+    return User.to_collection_dict(user.user_comments.select(), page, per_page,
+                                   'api.get_user_comments', id=id)
 
 @bp.route('/users', methods=['POST'])
 def create_user():

@@ -170,8 +170,8 @@ class User(PaginatedAPIMixin, UserMixin, SearchableMixin, db.Model):
 				'self': url_for('api.get_user', id=self.id),
 				'followers': url_for('api.get_followers', id=self.id),
 				'following': url_for('api.get_following', id=self.id),
-				'avatar': url_for('user.static', filename=f'avatars/{self.avatar_id}.svg', _external=True),
-
+				'comments': url_for('api.get_user_comments', id=self.id),
+				'avatar': url_for('user.static', filename=f'avatars/{self.avatar_id}.svg', _external=True)
 			}
 		}
 		if include_email:
@@ -345,10 +345,11 @@ class Book(PaginatedAPIMixin, SearchableMixin, db.Model):
 			"price": self.price,
 			"rating": self.rating,
 			"availability": self.availability,
-			"description": self.description, 
+			"description": self.description,
 			"_links" : {
-				"self": url_for("api.get_book", id=self.id), #add route for this
-				"cover": self.cover
+				"self": url_for("api.get_book", id=self.id),
+				"cover": self.cover,
+				'comments': url_for('api.get_book_comments', id=self.id)
 			}
 		}
 
@@ -378,14 +379,13 @@ class Comment(db.Model):
 			"body": self.body,
 			"timestamp": self.timestamp.replace(
 				tzinfo=timezone.utc).isoformat() if self.timestamp else None,
-			"author": self.author.to_dict(),
-			"book": self.book.to_dict(),
-
-			"_links" : {
-				"author": url_for('api.get_user', id=self.author.id),
-				"book": url_for('api.get_book', id=self.book.id) # add route for this
+			"_links": {
+				"author": url_for("api.get_user", id=self.author.id),
+				"book": url_for("api.get_book", id=self.book.id)
 			}
 		}
+
+		return data
 
 	def __repr__(self):
 		return f"Comment <{self.id}, author={self.user_id}>"
