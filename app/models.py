@@ -59,16 +59,23 @@ class PaginatedAPIMixin(object):
 
 class SearchableMixin:
 	@classmethod
-	def search(cls, expression, page, per_page):
+	def search(cls, expression, page, per_page, is_api=False, endpoint=None):
 		ids, total = query_index(cls.__tablename__, expression, page, per_page)
 		
 		if total == 0 or not ids:
-			return [], 0
+			return [], 0 if not is_api else {"items": [], "_meta": {"total_items": 0, "page": page, "per_page": per_page}}
 
 		when = [(ids[i], i) for i in range(len(ids))]
 
 		query = sa.select(cls).where(cls.id.in_(ids)).order_by(
 			db.case(*when, value=cls.id))
+	
+		if is_api:
+			result = cls.to_collection_dict(query, page, per_page, endpoint)
+			result["total_items"] = total
+
+			return result
+
 		return db.session.scalars(query), total
 
 	@classmethod

@@ -1,4 +1,5 @@
 import sqlalchemy as sa 
+from flask import g
 from flask_httpauth import HTTPBasicAuth, HTTPTokenAuth
 from app import db
 from app.models import User
@@ -19,7 +20,11 @@ def basic_auth_error(status):
 
 @token_auth.verify_token
 def verify_token(token):
-    return User.check_token(token) if token else None
+    user = User.check_token(token) if token else None
+    if user:
+        g.current_user = user 
+        return user 
+    return None
 
 @token_auth.error_handler
 def token_auth_error(status):

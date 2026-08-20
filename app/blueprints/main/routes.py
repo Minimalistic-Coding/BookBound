@@ -24,7 +24,6 @@ def before_request():
 
 @bp.route('/')
 @bp.route('/index')
-@login_required
 def index():
     books, next_url, prev_url = paginate_elements(query=Book.query, endpoint='main.index')
     return render_template('index.html', title=_('Home'), books=books.items, next_url=next_url, prev_url=prev_url)
@@ -41,6 +40,8 @@ def search():
     if search_type == 'books':
         results, total = Book.search(g.search_form.q.data, page, current_app.config['ITEMS_PER_PAGE'])
         template = 'search_book.html'
+    elif search_type == "users" and not user.is_authenticated:
+        return redirect('main.index')
     else:
         results, total = User.search(g.search_form.q.data, page, current_app.config['ITEMS_PER_PAGE'])
         template = 'search_user.html'

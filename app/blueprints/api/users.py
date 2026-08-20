@@ -1,4 +1,4 @@
-from flask import url_for, request
+from flask import url_for, request, g
 import sqlalchemy as sa 
 from app.blueprints.api import bp
 from app.blueprints.api.errors import bad_request
@@ -17,6 +17,29 @@ def get_users():
     page = request.args.get('page', 1, type=int)
     per_page = min(request.args.get('per_page', 10, type=int), 100)
     return User.to_collection_dict(sa.select(User), page, per_page, 'api.get_users')
+
+@bp.route('/users/search', methods=["GET"])
+@token_auth.login_required
+def search_users():
+    page = request.args.get('page', 1, type=int)
+    per_page = min(request.args.get('per_page', 10, type=int), 25)
+    query = request.args.get('q', None)
+    results = User.search(query, page, per_page, is_api=True, endpoint='api.search_users')
+    return results
+
+# @bp.route('/users/follow/<int:user_id>', methods=['POST'])
+# @token_auth.login_required
+# def follow_user(user_id):
+#     author = g.current_user
+#     user = db.get_or_404(User, user_id)
+#     if not user:
+#         return bad_request("Please provide a valid user id!")
+#     elif author == user:
+#         return bad_request("You cannot follow yourself!")
+
+#     author.follow(user)
+#     db.session.commit()
+#     return {"message": }
 
 @bp.route('/users/<int:id>/followers', methods=['GET'])
 @token_auth.login_required
